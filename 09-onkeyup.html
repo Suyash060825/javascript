@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onkeyup</title>
+</head>
+<body>
+    <input placeholder="Enter" class="js-inputText" onkeyup="onKeyUp();
+    ">
+    <p class="js-resultText"></p>
+    <script>
+        function onKeyUp() {
+            const inputElement = document.querySelector('.js-inputText');
+            const text=inputElement.value;
+            document.querySelector('.js-resultText').innerHTML= `${text}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart quantity</title>
+</head>
+<body>
+    <button onclick="updateCartQuantity('show');
+    ">
+        Show Quantity
+    </button>
+
+    <button onclick="updateCartQuantity('add',1);
+    ">
+        Add to Cart
+    </button>
+
+    <button onclick="updateCartQuantity('add',2);
+    ">
+        +2
+    </button>
+    <button onclick="updateCartQuantity('add',3);
+    ">
+        +3
+    </button>
+    <button onclick="updateCartQuantity('add',4);
+    ">
+        +4
+    </button>
+    <button onclick="updateCartQuantity('add',5);
+    ">
+        +5
+    </button>
+    <button onclick="updateCartQuantity('reset');">
+        Reset Cart
+    </button>
+    <button onclick="updateCartQuantity('remove');
+    ">
+        Remove from Cart
+    </button>
+    <p class="js-cartQuantity"></p>
+    <script>
+        let cartQuantity=localStorage.getItem('cartQuantity') || 0;
+        function updateCartQuantity(work,quantity) {
+
+            if(work==='add' && cartQuantity+quantity>10)
+            {
+                alert('The Cart is Full!!');
+            }
+            else if(work==='remove' && cartQuantity-1<0) {
+                alert('The Cart is Empty!!');
+            }
+            else if(work==='show') {
+                printCartQuantity();
+            }
+            else if(work==='add' && quantity==1) {
+                cartQuantity=cartQuantity+1;
+                printCartQuantity();
+            }
+            else if(work==='add'  && quantity==2) {
+                cartQuantity=cartQuantity+2;
+                printCartQuantity();
+            }
+            else if(work==='add'  && quantity==3) {
+                cartQuantity=cartQuantity+3;
+                printCartQuantity();
+            }
+            else if(work==='reset') {
+                cartQuantity=0;
+                printCartQuantity();
+            }
+            else if(work==='add'  && quantity==4){
+                cartQuantity+=4;
+                printCartQuantity();
+            }
+            else if(work==='add'  && quantity==5) {
+                cartQuantity+=5;
+                printCartQuantity();
+            }
+            else if(work==='remove') {
+                cartQuantity--;
+                printCartQuantity();
+            }
+            localStorage.setItem('cartQuantity',cartQuantity);
+        }
+
+        function printCartQuantity() {
+            document.querySelector('.js-cartQuantity').innerHTML=`Cart quantity: ${cartQuantity}`;
+        }
+    </script>
+</body>
+</html>

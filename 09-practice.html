@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09-practice</title>
+</head>
+<body>
+    <button>9a</button>
+    <button class="js-9b-button" style="margin-bottom:50px;">9b</button>
+    <br>
+
+
+    <button onclick="
+        chooseOption('heads');
+        ">
+    heads
+    </button>
+
+    <button onclick="
+        chooseOption('tails');
+        ">
+        tails
+    </button>
+
+    <p class="js-choose" style="margin-bottom:50px;"></p>
+    <br>
+
+    <input placeholder="Name" class="js-input-name" onkeydown="checkEvent(event)">
+    <button class="js-submit-button" onclick="
+    enterYourName();
+    ">Submit</button>
+    <p class="js-name"></p>
+
+    <script>
+
+        function checkEvent(event) {
+            if(event.key==='Enter') {
+                enterYourName();
+            }
+        }
+
+        function enterYourName() {
+            const inputElement =document.querySelector('.js-input-name');
+            const name=inputElement.value;
+            document.querySelector('.js-name').innerHTML=` Your Name is: ${name}`;
+        }
+
+        function chooseOption(option) {
+            if(option==='heads') {
+                document.querySelector('.js-choose').innerHTML='You chose: heads';
+            }
+            else if(option==='tails') {
+                document.querySelector('.js-choose').innerHTML='You chose: tails';
+            }
+        }
+
+        console.log(document.querySelector('button'));
+        document.querySelector('.js-9b-button').innerHTML='9b done!';
+    </script>
+</body>
+</html>

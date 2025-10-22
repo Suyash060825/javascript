@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body{
+            background-color:black;
+        }
+        button{
+            color:white;
+            border:none;
+            padding-top:4px;
+            padding-bottom:4px;
+            padding-left:8px;
+            padding-right:8px;
+            border-radius:15px;
+            background-color:rgb(51, 51, 51);
+        }
+        .right{
+            background-color:rgb(254, 160, 10);
+        }
+        .heading{
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <p class="heading">
+        Calculator
+    </p>
+    <p>
+        <button onclick="updateCalculation('1');
+            ">
+                1
+        </button>
+        <button onclick="updateCalculation('2');
+            ">
+                2
+        </button>
+        <button onclick="updateCalculation('3');
+            ">
+                3
+        </button>
+        <button class="right" onclick="updateCalculation('+');
+            ">
+                +
+        </button>
+    </p>
+
+    <p>
+        <button onclick="updateCalculation('4');
+            ">
+                4
+        </button>
+        <button onclick="updateCalculation('5');
+            ">
+                5
+        </button>
+        <button onclick="updateCalculation('6');
+            ">
+                6
+        </button>
+        <button class="right" onclick="updateCalculation('-');
+            ">
+                -
+        </button>
+    </p>
+
+    <p>
+        <button onclick="updateCalculation('7');
+            ">
+                7
+        </button>
+        <button onclick="updateCalculation('8');">
+                8
+        </button>
+        <button onclick="updateCalculation('9');
+            ">
+                9
+        </button>
+        <button class="right" onclick="updateCalculation('*');
+            ">
+                *
+        </button>
+    </p>
+
+    <p>
+        <button onclick="updateCalculation('0');
+            ">
+                0
+        </button>
+        <button onclick="updateCalculation('.');
+            ">
+                .
+        </button>
+        <button onclick="updateCalculation('=');
+            ">
+            =
+        </button>
+        <button class="right" onclick="updateCalculation('/');
+            ">
+                /
+        </button>
+    </p>
+    <button onclick="updateCalculation('Clear')
+    ">
+        Clear
+    </button>
+
+    <script>
+        let calculation=localStorage.getItem('calculation') || '';
+        function updateCalculation(symbol) {
+            if(symbol!=='=' && symbol!=='Clear') {
+                calculation+=`${symbol}`;
+                console.log(calculation);
+            }    
+            else if(symbol==='=') {
+                calculation=eval(calculation);
+                console.log(calculation);
+            }
+            else if(symbol==='Clear') {
+                calculation='';
+                console.log(calculation);
+            }
+            localStorage.setItem('calculation',JSON.stringify(calculation));
+        }
+    </script>
+</body>
+</html>

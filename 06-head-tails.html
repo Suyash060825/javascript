@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Head or Tails</title>
+</head>
+<body>
+    <p>Head or Tails?</p>
+
+    <button onclick="
+        const randomNumber=Math.random();
+
+        let computerMove='';
+        if(randomNumber>=0 && randomNumber<1/2) {
+            computerMove='Heads';
+        }
+        else if(randomNumber>=1/2 && randomNumber<1) {
+            computerMove='Tails';
+        }
+
+        let result='';
+        if(computerMove==='Heads') {
+            result='You Win!';
+        }
+        else if(computerMove==='Tails') {
+            result='You lose!';
+        }
+
+        alert(`You choosed Heads. Computer choosed ${computerMove}. ${result}`);
+        ">
+        Heads
+    </button>
+
+    <button onclick="
+        const randomNumber=Math.random();
+        let computerMove='';
+        if(randomNumber>=0 && randomNumber<1/2) {
+            computerMove='Heads';
+        }
+        else if(randomNumber>=1/2 && randomNumber<1) {
+            computerMove='Tails';
+        }
+
+        let result='';
+        if(computerMove==='Heads') {
+            result='You Lose!';
+        }
+        else if(computerMove==='Tails') {
+            result='You Win!';
+        }
+
+        alert(`You choosed Tails. Computer choosed ${computerMove}. ${result}`);
+        ">
+        Tails
+    </button>
+</body>
+</html>
