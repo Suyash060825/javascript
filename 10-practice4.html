@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10-practice3</title>
+    <style>
+        .gaming-button{
+            background-color:rgb(240,240,240);
+            color:black;
+            font-family:arial;
+            font-size:15px;
+            padding:10px 15px;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+            margin-right:10px;
+        }
+        .is-pressed{
+            background-color:black;
+            color:white;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <button class="js-gaming-button gaming-button" onclick="transition('gaming');">
+        Gaming
+    </button>
+    <button class="js-music-button gaming-button" onclick="transition('music');">
+        Music
+    </button>
+    <button class="js-tech-button gaming-button" onclick="transition('tech');">
+        Tech
+    </button>
+
+    <script>
+        function transition(genre) {
+            const gamingElement=document.querySelector(`.js-gaming-button`);
+            const musicElement=document.querySelector(`.js-music-button`);
+            const techElement=document.querySelector(`.js-tech-button`);
+
+            if(genre==='gaming') {
+                if(gamingElement.classList.contains('is-pressed')) {
+                    gamingElement.classList.remove('is-pressed');
+                }
+                else {
+                    gamingElement.classList.add('is-pressed');
+                    musicElement.classList.remove('is-pressed');
+                    techElement.classList.remove('is-pressed');
+                }
+            }
+
+            if(genre==='music') {
+                if(musicElement.classList.contains('is-pressed')) {
+                    musicElement.classList.remove('is-pressed');
+                }
+                else {
+                    musicElement.classList.add('is-pressed');
+                    gamingElement.classList.remove('is-pressed');
+                    techElement.classList.remove('is-pressed');
+                }
+            }
+
+            if(genre==='tech') {
+                if(techElement.classList.contains('is-pressed')) {
+                    techElement.classList.remove('is-pressed');
+                }
+                else {
+                    techElement.classList.add('is-pressed');
+                    gamingElement.classList.remove('is-pressed');
+                    musicElement.classList.remove('is-pressed');
+                }
+            }
+            
+
+            //gamingElement.classList.remove('is-pressed');
+            /*if(gamingElement.classList.contains('is-pressed')) {
+                gamingElement.classList.remove('is-pressed');
+            }
+            else {
+                gamingElement.classList.add('is-pressed');
+            }*/
+        }
+    </script>
+</body>
+</html>

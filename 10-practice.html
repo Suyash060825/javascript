@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10-practice</title>
+    <style>
+        .gaming-button{
+            background-color:black;
+            color:white;
+            font-family:arial;
+            font-size:15px;
+            padding:10px 15px;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+        }
+        .is-pressed{
+            background-color:rgb(240,240,240);
+            color:black;
+            
+        }
+    </style>
+</head>
+<body>
+    <button style="margin-bottom:50px;" class="js-button">
+        Test
+    </button>
+    <br>
+
+    <button class="js-gaming-button gaming-button" onclick="transition();">
+        Gaming
+    </button>
+
+    <script>
+        const buttonElement=document.querySelector('.js-button');
+        console.log(buttonElement.classList.contains('js-button'));
+
+        function transition() {
+            const gamingElement=document.querySelector('.js-gaming-button');
+            if(gamingElement.classList.contains('is-pressed')) {
+                gamingElement.classList.remove('is-pressed');
+            }
+            else {
+                gamingElement.classList.add('is-pressed');
+            }
+        }
+    </script>
+</body>
+</html>
